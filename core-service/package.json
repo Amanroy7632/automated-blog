@@ -1,0 +1,30 @@
+{
+  "name": "core-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "start": "node dist/src/index.js",
+    "build": "tsc -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
+    "axios": "^1.10.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,1 +1,0 @@
-const bot = "Bot-1"
