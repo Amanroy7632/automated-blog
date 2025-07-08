@@ -1,10 +1,16 @@
 import app from "./app";
-import {PORT} from "./config"
+import { connectDB, PORT } from "./config";
 async function startServer() {
-    app.listen(PORT,()=>{
-        console.log("Core-service listining on : ",PORT);
+  connectDB().then(() => {
+    app.listen(PORT, () => {
+      console.log("Core-service listining on : ", PORT);
     });
+  }).catch((err)=>{
+    console.log("Failed to connect databse");
+  });
 }
-startServer().then().catch((err)=>{
+startServer()
+  .then()
+  .catch((err) => {
     console.log("Failed to start server.");
-})
+  });

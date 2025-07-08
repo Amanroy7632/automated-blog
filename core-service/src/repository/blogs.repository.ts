@@ -1,12 +1,13 @@
 import { IBlogRepository } from "../interfaces";
-import { Blog } from "../models";
+import { Blog, generateSlug } from "../models";
 export class BlogRepository implements IBlogRepository {
   async create(input: any): Promise<any> {
-    const existingBlog = await Blog.findOne({ slug: input.slug });
+    const slug =generateSlug(input.title);
+    const existingBlog = await Blog.findOne({ slug });
     if (existingBlog) {
       throw new Error("Blog already exists.");
     }
-    return await Blog.create(input);
+    return await Blog.create({...input,slug});
   }
   async findOne(slug: string): Promise<any> {
     return await Blog.findOne({ slug });
